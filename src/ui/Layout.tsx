@@ -1,0 +1,29 @@
+import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+
+export default function Layout() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Navbar onMenuClick={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+      <Sidebar isOpen={isSidebarOpen} onToggle={toggleSidebar} />
+
+      <div
+        className={`p-4 transition-all duration-300 ${
+          isSidebarOpen ? 'ml-64' : 'ml-20'
+        } mt-14`}
+      >
+        <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg min-h-[calc(100vh-120px)] bg-white">
+          <Outlet />
+        </div>
+      </div>
+    </div>
+  );
+}
