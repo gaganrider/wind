@@ -7,6 +7,7 @@ import Team from './pages/app/Team';
 import Settings from './pages/app/Settings';
 import Connections from './pages/app/Connections';
 import Scheduler from './pages/app/Scheduler';
+import CreatePost from './pages/app/CreatePost';
 import OAuthCallback from './pages/app/OAuthCallback';
 import Login from './pages/public/Login';
 import Signup from './pages/public/Signup';
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
       {
         path: 'scheduler',
         element: <Scheduler />,
+      },
+      {
+        path: 'create-post',
+        element: <CreatePost />,
       },
       {
         path: 'settings',
